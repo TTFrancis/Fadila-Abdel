@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariage — Fadila & Abdel</title>
+<!-- NAMES ORDER: Fadila (bride) first, Abdel (groom) second throughout -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -134,13 +135,15 @@
   #main-page { opacity:0; transition: opacity 1s ease 0.3s; position:relative; z-index:2; }
   #main-page.visible { opacity:1; }
   .sec-flower { position:absolute; pointer-events:none; z-index:0; }
-  .sec-flower.tl { top:-20px; left:-20px; width:clamp(160px,22vw,300px); opacity:0.18; }
-  .sec-flower.tr { top:-20px; right:-20px; width:clamp(160px,22vw,300px); opacity:0.15; transform:scaleX(-1); }
-  .sec-flower.bl { bottom:-20px; left:-20px; width:clamp(140px,18vw,260px); opacity:0.14; transform:rotate(180deg) scaleX(-1); }
-  .sec-flower.br { bottom:-20px; right:-20px; width:clamp(140px,18vw,260px); opacity:0.13; transform:rotate(180deg); }
-  .sec-flower.mid-r { top:40%; right:-30px; width:clamp(120px,16vw,220px); opacity:0.12; transform:scaleX(-1) rotate(-15deg); }
-  .sec-flower.mid-l { top:40%; left:-30px; width:clamp(120px,16vw,220px); opacity:0.11; transform:rotate(15deg); }
-  .sec-flower.dark { opacity:0.08; filter:brightness(2) saturate(0.4); }
+  .sec-flower.tl  { top:-30px;  left:-30px;  width:clamp(200px,28vw,380px); opacity:0.28; }
+  .sec-flower.tr  { top:-30px;  right:-30px; width:clamp(200px,28vw,380px); opacity:0.25; transform:scaleX(-1); }
+  .sec-flower.bl  { bottom:-30px; left:-30px;  width:clamp(180px,24vw,330px); opacity:0.22; transform:rotate(180deg) scaleX(-1); }
+  .sec-flower.br  { bottom:-30px; right:-30px; width:clamp(180px,24vw,330px); opacity:0.20; transform:rotate(180deg); }
+  .sec-flower.mid-r { top:38%; right:-40px; width:clamp(160px,20vw,280px); opacity:0.19; transform:scaleX(-1) rotate(-15deg); }
+  .sec-flower.mid-l { top:38%; left:-40px;  width:clamp(160px,20vw,280px); opacity:0.18; transform:rotate(15deg); }
+  .sec-flower.mid-r2 { top:65%; right:-35px; width:clamp(140px,18vw,250px); opacity:0.16; transform:scaleX(-1) rotate(10deg); }
+  .sec-flower.mid-l2 { top:65%; left:-35px;  width:clamp(140px,18vw,250px); opacity:0.15; transform:rotate(-10deg); }
+  .sec-flower.dark { opacity:0.11; filter:brightness(2) saturate(0.3); }
 
   /* HERO */
   .hero { min-height:100vh; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: clamp(80px,10vw,120px) clamp(20px,5vw,60px); overflow:hidden; background: radial-gradient(ellipse 80% 60% at 50% 40%,rgba(200,220,200,0.12) 0%,transparent 70%), var(--cream); }
@@ -262,12 +265,18 @@
   @keyframes floatB { 0%,100%{transform:scaleX(-1) translateY(0)} 50%{transform:scaleX(-1) translateY(-8px)} }
   @keyframes floatC { 0%,100%{transform:rotate(180deg) scaleX(-1) translateY(0)} 50%{transform:rotate(180deg) scaleX(-1) translateY(-7px)} }
   @keyframes floatD { 0%,100%{transform:rotate(180deg) translateY(0)} 50%{transform:rotate(180deg) translateY(-9px)} }
-  .sec-flower.tl { animation:floatA 9s ease-in-out infinite; }
-  .sec-flower.tr { animation:floatB 11s ease-in-out infinite 1s; }
-  .sec-flower.bl { animation:floatC 10s ease-in-out infinite 2s; }
-  .sec-flower.br { animation:floatD 8s ease-in-out infinite 0.5s; }
-  .sec-flower.mid-r { animation:floatB 12s ease-in-out infinite 1.5s; }
-  .sec-flower.mid-l { animation:floatA 13s ease-in-out infinite 3s; }
+  @keyframes floatE { 0%,100%{transform:scaleX(-1) rotate(-15deg) translateY(0)} 50%{transform:scaleX(-1) rotate(-15deg) translateY(-9px)} }
+  @keyframes floatF { 0%,100%{transform:rotate(15deg) translateY(0)} 50%{transform:rotate(15deg) translateY(-8px)} }
+  @keyframes floatG { 0%,100%{transform:scaleX(-1) rotate(10deg) translateY(0)} 50%{transform:scaleX(-1) rotate(10deg) translateY(-7px)} }
+  @keyframes floatH { 0%,100%{transform:rotate(-10deg) translateY(0)} 50%{transform:rotate(-10deg) translateY(-6px)} }
+  .sec-flower.tl   { animation:floatA 9s  ease-in-out infinite; }
+  .sec-flower.tr   { animation:floatB 11s ease-in-out infinite 1s; }
+  .sec-flower.bl   { animation:floatC 10s ease-in-out infinite 2s; }
+  .sec-flower.br   { animation:floatD 8s  ease-in-out infinite 0.5s; }
+  .sec-flower.mid-r  { animation:floatE 12s ease-in-out infinite 1.5s; }
+  .sec-flower.mid-l  { animation:floatF 13s ease-in-out infinite 3s; }
+  .sec-flower.mid-r2 { animation:floatG 10s ease-in-out infinite 2.5s; }
+  .sec-flower.mid-l2 { animation:floatH 11s ease-in-out infinite 4s; }
 
   /* TOAST */
   .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(80px); background:var(--green-deep); color:var(--ivory); padding:0.8rem 2rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; border-radius:2px; box-shadow:0 8px 24px rgba(0,0,0,0.2); transition:transform 0.4s ease; z-index:2000; white-space:nowrap; }
@@ -277,10 +286,12 @@
 <body>
 
 <div id="flower-canvas">
-  <div class="mag-tile" id="ftl" style="top:-30px;left:-30px;width:clamp(200px,28vw,360px);"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
-  <div class="mag-tile" id="ftr" style="top:-30px;right:-30px;width:clamp(200px,28vw,360px);"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch-r"/></svg></div>
-  <div class="mag-tile" id="fbl" style="bottom:-30px;left:-30px;width:clamp(170px,22vw,300px);transform:rotate(170deg) scaleX(-1);"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
-  <div class="mag-tile" id="fbr" style="bottom:-30px;right:-30px;width:clamp(170px,22vw,300px);transform:rotate(170deg);"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
+  <div class="mag-tile" id="ftl" style="top:-40px;left:-40px;width:clamp(240px,34vw,440px);opacity:0.6;"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
+  <div class="mag-tile" id="ftr" style="top:-40px;right:-40px;width:clamp(240px,34vw,440px);opacity:0.55;"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch-r"/></svg></div>
+  <div class="mag-tile" id="fbl" style="bottom:-40px;left:-40px;width:clamp(200px,26vw,360px);transform:rotate(170deg) scaleX(-1);opacity:0.5;"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
+  <div class="mag-tile" id="fbr" style="bottom:-40px;right:-40px;width:clamp(200px,26vw,360px);transform:rotate(170deg);opacity:0.48;"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
+  <div class="mag-tile" id="fml" style="top:42vh;left:-35px;width:clamp(160px,20vw,280px);transform:rotate(15deg);opacity:0.28;"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch"/></svg></div>
+  <div class="mag-tile" id="fmr" style="top:42vh;right:-35px;width:clamp(160px,20vw,280px);transform:scaleX(-1) rotate(-15deg);opacity:0.26;"><svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" width="100%"><use href="#magnolia-branch-r"/></svg></div>
 </div>
 
 <div id="envelope-section">
@@ -292,7 +303,7 @@
       <div class="envelope-inner" id="envInner">
         <div class="envelope-inner-content">
           <span class="amp">&</span>
-          <div class="names">ABDEL &amp; FADILA</div>
+          <div class="names">FADILA &amp; ABDEL</div>
         </div>
       </div>
     </div>
@@ -304,16 +315,18 @@
 <div id="main-page">
 
   <section class="hero">
-    <svg class="sec-flower tl" style="width:clamp(220px,30vw,420px);opacity:0.22;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
-    <svg class="sec-flower tr" style="width:clamp(220px,30vw,420px);opacity:0.20;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
-    <svg class="sec-flower bl" style="width:clamp(180px,24vw,340px);opacity:0.16;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
-    <svg class="sec-flower br" style="width:clamp(180px,24vw,340px);opacity:0.14;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower tl" style="width:clamp(260px,34vw,480px);opacity:0.28;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower tr" style="width:clamp(260px,34vw,480px);opacity:0.26;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower bl" style="width:clamp(220px,28vw,400px);opacity:0.22;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower br" style="width:clamp(220px,28vw,400px);opacity:0.20;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-l" style="opacity:0.16;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower mid-r" style="opacity:0.14;" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
 
     <p class="hero-label">Avec la grâce de Dieu</p>
     <div class="hero-amp">&</div>
     <h1 class="hero-names">
-      <span class="name1">Abdel</span>
-      <span class="name2">Fadila</span>
+      <span class="name1">Fadila</span>
+      <span class="name2">Abdel</span>
     </h1>
     <div class="hero-date-band">
       <span>SAMEDI</span>
@@ -331,23 +344,26 @@
   <section class="couple-section">
     <svg class="sec-flower tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-l" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower mid-r" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <div class="section-inner">
       <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="section-title reveal reveal-delay-1">Les Mariés</p>
       <div class="couple-grid">
         <div class="person-card reveal reveal-delay-2">
-          <p class="person-role">Le Marié</p>
-          <h2 class="person-name">Abdel<em>Nji Nkoupit</em></h2>
-          <p class="person-desc">Fils aimé, uni en amour et en promesse éternelle.</p>
+          <p class="person-role">La Mariée</p>
+          <h2 class="person-name">Fadila<em>Monchiyiendi Sani Mama</em></h2>
+          <p class="person-desc">Fille bénie, unissant sa vie dans la joie et la grâce.</p>
         </div>
         <div class="couple-and reveal reveal-delay-2">
           <span class="couple-and-text">&</span>
         </div>
         <div class="person-card reveal reveal-delay-3">
-          <p class="person-role">La Mariée</p>
-          <h2 class="person-name">Fadila<em>Monchiyiendi Sani Mama</em></h2>
-          <p class="person-desc">Fille bénie, unissant sa vie dans la joie et la grâce.</p>
+          <p class="person-role">Le Marié</p>
+          <h2 class="person-name">Abdel<em>Nji Nkoupit</em></h2>
+          <p class="person-desc">Fils aimé, uni en amour et en promesse éternelle.</p>
         </div>
       </div>
     </div>
@@ -355,19 +371,22 @@
 
   <section class="families-section">
     <svg class="sec-flower tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <svg class="sec-flower mid-r" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-l" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <div class="section-inner">
       <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="section-title reveal reveal-delay-1">Nos Familles</p>
       <div class="families-grid">
         <div class="family-block reveal reveal-delay-2">
-          <p class="family-side">Famille du Marié</p>
-          <p class="family-name-big" style="border-top:none; margin-top:0; padding-top:0;">Famille Nji Nkoupit</p>
-        </div>
-        <div class="family-block reveal reveal-delay-3">
           <p class="family-side">Famille de la Mariée</p>
           <p class="family-name-big" style="border-top:none; margin-top:0; padding-top:0;">Famille Monchiyiendi Sani Mama</p>
+        </div>
+        <div class="family-block reveal reveal-delay-3">
+          <p class="family-side">Famille du Marié</p>
+          <p class="family-name-big" style="border-top:none; margin-top:0; padding-top:0;">Famille Nji Nkoupit</p>
         </div>
       </div>
     </div>
@@ -378,6 +397,10 @@
     <svg class="sec-flower tr dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <svg class="sec-flower bl dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower br dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-l dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower mid-r dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-l2 dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower mid-r2 dark" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <div class="section-inner">
       <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="section-title reveal reveal-delay-1">Chronologie du Mariage</p>
@@ -442,6 +465,8 @@
   <section class="countdown-section">
     <svg class="sec-flower tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <svg class="sec-flower mid-l" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <div class="section-inner">
       <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
@@ -459,9 +484,11 @@
   </section>
 
   <section class="calendar-section">
+    <svg class="sec-flower tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <svg class="sec-flower bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower mid-r" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-l2" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <div class="section-inner">
       <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="section-title reveal reveal-delay-1">Date du Mariage</p>
@@ -482,7 +509,10 @@
 
   <section class="guestbook-section">
     <svg class="sec-flower tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
     <svg class="sec-flower br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower mid-r2" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
     <div class="section-inner">
       <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="section-title reveal reveal-delay-1">Livre d'Or</p>
@@ -496,9 +526,11 @@
   </section>
 
   <footer class="footer">
-    <svg class="sec-flower tl dark" style="opacity:0.1" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
-    <svg class="sec-flower tr dark" style="opacity:0.1" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
-    <div class="footer-names">Abdel &amp; Fadila</div>
+    <svg class="sec-flower tl dark" style="opacity:0.14" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower tr dark" style="opacity:0.14" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <svg class="sec-flower bl dark" style="opacity:0.10" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch"/></svg>
+    <svg class="sec-flower br dark" style="opacity:0.10" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#magnolia-branch-r"/></svg>
+    <div class="footer-names">Fadila &amp; Abdel</div>
     <div class="footer-date">SAMEDI · 11 JUILLET 2026 · À PARTIR DE 10:00</div>
     <p class="footer-message">"Et parmi Ses signes, Il a créé de vous-mêmes des épouses pour que vous trouviez la quiétude auprès d'elles." — Coran 30:21</p>
   </footer>
@@ -579,6 +611,8 @@ const ftl = document.getElementById('ftl');
 const ftr = document.getElementById('ftr');
 const fbl = document.getElementById('fbl');
 const fbr = document.getElementById('fbr');
+const fml = document.getElementById('fml');
+const fmr = document.getElementById('fmr');
 
 window.addEventListener('scroll', () => {
   const sy = window.scrollY;
@@ -589,12 +623,16 @@ window.addEventListener('scroll', () => {
   ftr.style.transform = `translateY(${dy}px) scale(${s})`;
   fbl.style.transform = `rotate(170deg) scaleX(-1) translateY(${dy*0.5}px)`;
   fbr.style.transform = `rotate(170deg) translateY(${dy*0.5}px)`;
+  fml.style.transform = `rotate(15deg) translateY(${dy*0.3}px)`;
+  fmr.style.transform = `scaleX(-1) rotate(-15deg) translateY(${dy*0.3}px)`;
 
   const pulse = 0.55 + 0.15 * Math.sin(sy * 0.003);
   ftl.style.opacity = pulse;
   ftr.style.opacity = pulse * 0.9;
   fbl.style.opacity = pulse * 0.75;
   fbr.style.opacity = pulse * 0.70;
+  fml.style.opacity = pulse * 0.55;
+  fmr.style.opacity = pulse * 0.50;
 }, { passive: true });
 
 // CONFIRM 
