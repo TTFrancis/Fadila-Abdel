@@ -164,10 +164,8 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .inner{max-width:760px;margin:0 auto;position:relative;z-index:2}
 
 /* ═══════════════════════════════
-   ★ PRETEXT / PIANO LETTER ANIMATIONS ★
+   ★ ANIMATIONS ★
 ═══════════════════════════════ */
-
-/* Each letter is wrapped in a .ch span by JS */
 .ch{
   display:inline-block;
   opacity:0;
@@ -178,27 +176,11 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   opacity:1;
   transform:translateY(0) rotate(0deg);
 }
-
-/* Space char — invisible but keeps layout */
 .ch-space{display:inline-block;width:.28em}
+.wrd{display:inline-block;overflow:hidden;}
+.wrd-inner{display:inline-block;opacity:0;transform:translateY(100%);transition:opacity .6s ease, transform .6s ease;}
+.wrd-inner.in{opacity:1;transform:translateY(0);}
 
-/* word-split for subtitle lines */
-.wrd{
-  display:inline-block;
-  overflow:hidden;
-}
-.wrd-inner{
-  display:inline-block;
-  opacity:0;
-  transform:translateY(100%);
-  transition:opacity .6s ease, transform .6s ease;
-}
-.wrd-inner.in{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* line slide-up (for labels, dates, ornaments) */
 .line-up{
   opacity:0;
   transform:translateY(30px);
@@ -206,7 +188,6 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 }
 .line-up.in{opacity:1;transform:translateY(0)}
 
-/* fade-scale for cards */
 .fade-sc{
   opacity:0;
   transform:scale(.94) translateY(20px);
@@ -214,12 +195,10 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 }
 .fade-sc.in{opacity:1;transform:scale(1) translateY(0)}
 
-/* slide from left/right for families */
 .slide-l{opacity:0;transform:translateX(-50px);transition:opacity .7s ease,transform .7s ease}
 .slide-r{opacity:0;transform:translateX(50px);transition:opacity .7s ease,transform .7s ease}
 .slide-l.in,.slide-r.in{opacity:1;transform:translateX(0)}
 
-/* ornament lines grow */
 .ornament{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1rem}
 .ornament-line{flex:1;height:1px;max-width:80px;background:linear-gradient(to right,transparent,var(--gp));transform:scaleX(0);transform-origin:left;transition:transform .8s ease}
 .ornament-line.reverse{background:linear-gradient(to left,transparent,var(--gp));transform-origin:right}
@@ -227,18 +206,13 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .ornament-heart{color:var(--gl);font-size:.8rem;opacity:0;transition:opacity .5s ease .4s}
 .ornament-heart.in{opacity:1}
 
-/* countdown number flip */
 @keyframes numFlip{
   0%{transform:rotateX(-90deg);opacity:0}
   60%{transform:rotateX(10deg);opacity:1}
   100%{transform:rotateX(0deg);opacity:1}
 }
-.cd-flip{
-  display:inline-block;
-  animation:numFlip .4s ease forwards;
-}
+.cd-flip{display:inline-block;animation:numFlip .4s ease forwards;}
 
-/* timeline cell stagger */
 .t-cell{
   opacity:0;
   transform:translateY(24px);
@@ -250,30 +224,21 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
    HERO
 ═══════════════════════════════ */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(80px,10vw,120px) clamp(20px,5vw,60px);overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(200,220,200,.12) 0%,transparent 70%),var(--cream)}
-
 .hero-label{font-family:'Cinzel',serif;font-size:clamp(.55rem,1.5vw,.72rem);letter-spacing:.35em;color:var(--gm);text-transform:uppercase;margin-bottom:1.2rem;position:relative;z-index:2}
-
-/* hero amp — typewriter-style draw */
 .hero-amp{font-style:italic;font-size:clamp(3rem,8vw,6rem);color:var(--gd);line-height:.9;margin-bottom:.2rem;position:relative;z-index:2;opacity:0;transform:scale(.6) rotate(-10deg);transition:opacity .8s ease,transform .8s ease}
 .hero-amp.in{opacity:1;transform:scale(1) rotate(0deg)}
-
-/* hero names container */
 .hero-names{font-size:clamp(3.2rem,9vw,6.5rem);font-weight:300;color:var(--gd);line-height:1.05;text-align:center;letter-spacing:-.01em;position:relative;z-index:2}
 .hero-names .name1{display:block}
 .hero-names .name2{display:block;font-style:italic}
-
-.hero-date-band{margin-top:2.5rem;display:flex;align-items:center;gap:clamp(1rem,3vw,2.5rem);position:relative;z-index:2;flex-wrap:wrap;justify-content:center}
-.hero-date-band span{font-family:'Cinzel',serif;font-size:clamp(.7rem,1.8vw,.85rem);letter-spacing:.25em;color:var(--gm)}
-.hero-date-band .day-num{font-size:clamp(2.5rem,6vw,4rem);font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--gd);line-height:1}
+.hero-date-band{margin-top:2.5rem;display:flex;align-items:center;gap:clamp(1rem,3vw,2.5rem);position:relative;z-index:2;flex-wrap:wrap;justify-content:center;text-align:center}
+.hero-date-band span{font-family:'Cinzel',serif;font-size:clamp(.7rem,1.8vw,.85rem);letter-spacing:.25em;color:var(--gm);line-height:1.4}
+.hero-date-band .day-num{font-size:clamp(1.8rem,4.5vw,3rem);font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--gd);line-height:1.1}
 .hero-date-band .divider{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gl),transparent)}
-
 .hero-scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;z-index:2;transition:opacity 1s ease}
 .hero-scroll-cue.in{opacity:1}
 .hero-scroll-cue span{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:var(--gl)}
 .scroll-arrow{width:20px;height:20px;border-right:1px solid var(--gl);border-bottom:1px solid var(--gl);transform:rotate(45deg);animation:bounce-arrow 1.5s ease-in-out infinite}
 @keyframes bounce-arrow{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
-
-/* section titles */
 .sec-title{font-family:'Cinzel',serif;font-size:clamp(.7rem,2vw,.85rem);letter-spacing:.4em;color:var(--gm);text-align:center;margin-bottom:3rem;text-transform:uppercase}
 
 /* ═══════════════════════════════
@@ -286,7 +251,6 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .person-card::before{content:'';position:absolute;top:8px;left:8px;right:-8px;bottom:-8px;border:1px solid rgba(138,176,138,.12);pointer-events:none}
 .person-role{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.35em;color:var(--gl);text-transform:uppercase;margin-bottom:1rem}
 .person-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--gd);line-height:1.1;margin-bottom:.8rem}
-.person-name em{display:block;font-style:italic;font-size:.65em;color:var(--gm)}
 .person-desc{font-size:clamp(.85rem,2vw,1rem);color:var(--tl);font-style:italic;line-height:1.6}
 .couple-and{display:flex;align-items:center;justify-content:center}
 .couple-and-text{font-style:italic;font-size:clamp(3rem,7vw,5rem);color:var(--gl);line-height:1}
@@ -299,7 +263,7 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 @media(max-width:580px){.families-grid{grid-template-columns:1fr}}
 .family-block{text-align:center;padding:clamp(1.5rem,3vw,2.5rem);border-top:2px solid var(--gp)}
 .family-side{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.35em;color:var(--gm);text-transform:uppercase;margin-bottom:1.5rem}
-.family-name-big{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-style:italic;color:var(--gd);font-weight:300}
+.family-name-big{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;color:var(--gd)}
 
 /* ═══════════════════════════════
    RECEPTION / TIMELINE
@@ -310,12 +274,13 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .reception-section .ornament-line.reverse{background:linear-gradient(to left,transparent,rgba(200,220,200,.3))}
 .reception-section .ornament-heart{color:var(--gp)}
 .reception-headline{text-align:center;font-family:'Cinzel',serif;font-size:clamp(.65rem,2vw,.8rem);letter-spacing:.3em;color:var(--gp);margin-bottom:1rem}
-.reception-time{text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,10vw,7rem);font-weight:300;color:var(--ivory);line-height:.9;letter-spacing:-.02em;margin-bottom:.5rem}
-.reception-date-row{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,3vw,2.5rem);margin:1.5rem 0;flex-wrap:wrap}
-.reception-date-row .r-label{font-family:'Cinzel',serif;font-size:clamp(.6rem,1.5vw,.75rem);letter-spacing:.3em;color:var(--gp);text-transform:uppercase}
-.reception-date-row .r-num{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,5.5rem);font-weight:300;color:var(--ivory);line-height:1}
+.reception-time{text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,5rem);font-weight:300;color:var(--ivory);line-height:.9;letter-spacing:-.02em;margin-bottom:.5rem}
+.reception-date-row{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,3vw,2.5rem);margin:1.5rem 0;flex-wrap:wrap;text-align:center}
+.reception-date-row .r-label{font-family:'Cinzel',serif;font-size:clamp(.6rem,1.5vw,.75rem);letter-spacing:.3em;color:var(--gp);text-transform:uppercase;line-height:1.4}
+.reception-date-row .r-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:var(--ivory);line-height:1}
 .reception-date-row .r-divider{width:1px;height:50px;background:rgba(200,220,200,.3)}
-.reception-info-grid{display:grid;grid-template-columns:1fr;gap:2px;background:rgba(200,220,200,.15);margin-top:3rem;border:1px solid rgba(200,220,200,.15)}
+.reception-info-grid{display:grid;grid-template-columns:1fr;gap:2px;background:rgba(200,220,200,0.15);margin-top:3rem;border:1px solid rgba(200,220,200,0.15)}
+.info-day-title {background:rgba(45,74,45,0.4);color:var(--gold);font-family:'Cinzel',serif;font-size:clamp(.75rem,2vw,.9rem);letter-spacing:.25em;text-transform:uppercase;padding:.8rem;text-align:center}
 .info-cell{display:flex;flex-direction:column;justify-content:center;text-align:center;padding:clamp(1.5rem,3vw,2rem);background:var(--gd);gap:.5rem}
 .info-cell-value{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1}
 .info-cell-label{font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.25em;color:var(--gp);text-transform:uppercase;line-height:1.5}
@@ -340,12 +305,14 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .calendar-wrap{max-width:420px;margin:2rem auto 0;border:1px solid rgba(138,176,138,.25);background:var(--ivory);overflow:hidden}
 .cal-header{background:var(--gd);color:var(--ivory);text-align:center;padding:1.2rem;font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase}
 .cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);background:rgba(45,74,45,.08)}
-.cal-day-name{text-align:center;padding:.6rem 0;font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.2em;color:var(--gm);text-transform:uppercase}
+.cal-day-name{text-align:center;padding:.6rem 0;font-family:'Cinzel',serif;font-size warmth:.55rem;letter-spacing:.2em;color:var(--gm);text-transform:uppercase}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);padding:.5rem;gap:2px}
-.cal-cell{text-align:center;padding:.5rem 0;font-size:clamp(.85rem,2vw,1rem);color:var(--tm);font-family:'Cormorant Garamond',serif;border-radius:50%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin:1px}
+.cal-cell{text-align:center;padding:.5rem 0;font-size:clamp(.85rem,2vw,1rem);color:var(--tm);font-family:'Cormorant Garamond',serif;border-radius:50%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin:1px;position:relative}
 .cal-cell.empty{opacity:0}
-.cal-cell.wedding-day{background:var(--gd);color:white;position:relative}
+.cal-cell.wedding-day{background:var(--gd);color:white}
 .cal-cell.wedding-day::after{content:'♥';position:absolute;top:-8px;right:-4px;font-size:.55rem;color:var(--gold)}
+.cal-cell.friday-celebration{background:rgba(74,124,74,0.3);color:var(--gd);font-weight:600}
+.cal-cell.friday-celebration::after{content:'✧';position:absolute;top:-7px;right:-3px;font-size:.6rem;color:var(--gm)}
 .cal-link{display:block;text-align:center;margin-top:1.5rem;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.25em;color:var(--gm);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
 .cal-link:hover{border-color:var(--gm)}
 
@@ -371,10 +338,8 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 ═══════════════════════════════ */
 .footer{background:var(--gd);color:var(--gp);text-align:center;padding:clamp(3rem,6vw,5rem) clamp(20px,5vw,60px);position:relative;overflow:hidden}
 .footer-names{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-style:italic;font-weight:300;color:var(--ivory);margin-bottom:1rem;line-height:1.1;position:relative;z-index:2}
-.footer-date{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.4em;color:var(--gp);margin-bottom:2rem;position:relative;z-index:2}
+.footer-date{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.4em;color:var(--gp);margin-bottom:2rem;position:relative;z-index:2;line-height:1.6}
 .footer-message{font-style:italic;font-size:clamp(.9rem,2vw,1.1rem);color:var(--gp);max-width:400px;margin:0 auto;line-height:1.7;opacity:.8;position:relative;z-index:2}
-
-/* toast */
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gd);color:var(--ivory);padding:.8rem 2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.2);transition:transform .4s ease;z-index:2000;white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0)}
 </style>
@@ -413,7 +378,7 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
     </div>
     <div class="env-seal" id="envSeal">♥</div>
   </div>
-  <p class="env-hint">Cliquez pour ouvrir votre invitation</p>
+  <p class="env-hint line-up">Cliquez pour ouvrir votre invitation</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -430,29 +395,24 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
     <svg class="sf ml" style="opacity:.16" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf mr" style="opacity:.14" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
 
-    <!-- label: word-by-word -->
     <p class="hero-label" id="heroLabel">Avec la grâce de Dieu</p>
-
-    <!-- amp: spin-scale in -->
     <div class="hero-amp" id="heroAmp">&</div>
 
-    <!-- names: letter-by-letter piano -->
     <h1 class="hero-names" id="heroNames">
       <span class="name1" id="name1Text">Fadila</span>
       <span class="name2" id="name2Text">Abdel</span>
     </h1>
 
-    <!-- date band: staggered words -->
     <div class="hero-date-band" id="heroDate">
-      <span class="line-up">SAMEDI</span>
-      <div class="divider line-up" style="transition-delay:.1s"></div>
-      <span class="day-num line-up" style="transition-delay:.2s">11</span>
-      <div class="divider line-up" style="transition-delay:.3s"></div>
-      <span class="line-up" style="transition-delay:.4s">JUILLET<br>2026</span>
+      <span class="line-up">VENDREDI 10<br>&amp; SAMEDI 11</span>
+      <div class="divider line-up" style="transition-delay:.15s"></div>
+      <span class="day-num line-up" style="transition-delay:.3s">JUILLET</span>
+      <div class="divider line-up" style="transition-delay:.45s"></div>
+      <span class="line-up" style="transition-delay:.6s">2026</span>
     </div>
 
     <div class="hero-scroll-cue" id="scrollCue">
-      <span>DÉCOUVRIR</span>
+      <span class="line-up">DÉCOUVRIR</span>
       <div class="scroll-arrow"></div>
     </div>
   </section>
@@ -461,26 +421,22 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <section class="couple-section">
     <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf ml" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf mr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
     <div class="inner">
       <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="sec-title line-up">Les Mariés</p>
       <div class="couple-grid">
         <div class="person-card fade-sc" style="transition-delay:.15s">
-          <p class="person-role">La Mariée</p>
-          <h2 class="person-name" data-piano="true">Fadila<em>Monchiyiendi Sani Mama</em></h2>
-          <p class="person-desc">Fille bénie, unissant sa vie dans la joie et la grâce.</p>
+          <p class="person-role line-up">La Mariée</p>
+          <h2 class="person-name" data-piano="true">Fadila</h2>
+          <p class="person-desc line-up">Fille bénie, unissant sa vie dans la joie et la grâce.</p>
         </div>
         <div class="couple-and fade-sc" style="transition-delay:.3s">
           <span class="couple-and-text">&</span>
         </div>
         <div class="person-card fade-sc" style="transition-delay:.45s">
-          <p class="person-role">Le Marié</p>
-          <h2 class="person-name" data-piano="true">Abdel<em>Nji Nkoupit</em></h2>
-          <p class="person-desc">Fils aimé, uni en amour et en promesse éternelle.</p>
+          <p class="person-role line-up">Le Marié</p>
+          <h2 class="person-name" data-piano="true">Abdel</h2>
+          <p class="person-desc line-up">Fils aimé, uni en amour et en promesse éternelle.</p>
         </div>
       </div>
     </div>
@@ -490,21 +446,24 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <section class="families-section">
     <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf ml" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf mr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
     <div class="inner">
       <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="sec-title line-up">Nos Familles</p>
+      
       <div class="families-grid">
+        <!-- Bride's Side Layout -->
         <div class="family-block slide-l">
-          <p class="family-side">Famille de la Mariée</p>
-          <p class="family-name-big" data-piano="true" style="border-top:none;margin-top:0;padding-top:0">Famille Monchiyiendi Sani Mama</p>
+          <p class="family-side line-up">Familles de la Mariée</p>
+          <p class="family-name-big line-up" style="border-top:none;margin-top:0;padding-top:0;font-size:clamp(1.3rem,3vw,1.6rem);margin-bottom:.5rem;">La Famille NJI NGOUH</p>
+          <p class="family-name-big line-up" style="border-top:none;margin-top:0;padding-top:0;font-size:clamp(1.3rem,3vw,1.6rem);margin-bottom:.5rem;">La Famille MESSENDE</p>
+          <p class="family-name-big line-up" style="border-top:none;margin-top:0;padding-top:0;font-size:clamp(1.3rem,3vw,1.6rem);">La Famille OTTOU NGUELE</p>
         </div>
+        <!-- Groom's Side Layout -->
         <div class="family-block slide-r">
-          <p class="family-side">Famille du Marié</p>
-          <p class="family-name-big" data-piano="true" style="border-top:none;margin-top:0;padding-top:0">Famille Nji Nkoupit</p>
+          <p class="family-side line-up">Familles du Marié</p>
+          <p class="family-name-big line-up" style="border-top:none;margin-top:0;padding-top:0;font-size:clamp(1.3rem,3vw,1.6rem);margin-bottom:.5rem;">La Famille TAMBE</p>
+          <p class="family-name-big line-up" style="border-top:none;margin-top:0;padding-top:0;font-size:clamp(1.3rem,3vw,1.6rem);margin-bottom:.5rem;">La Famille NJI KOUPIT</p>
+          <p class="family-name-big line-up" style="border-top:none;margin-top:0;padding-top:0;font-size:clamp(1.3rem,3vw,1.6rem);">La Famille MONCHIYIENDI SANI MAMA</p>
         </div>
       </div>
     </div>
@@ -514,31 +473,49 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <section class="reception-section">
     <svg class="sf tl dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf br dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf ml dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf mr dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf ml2 dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf mr2 dk" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
     <div class="inner">
       <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="sec-title line-up">Chronologie du Mariage</p>
-      <p class="reception-headline line-up">LE PROGRAMME DE LA JOURNÉE :</p>
-      <div class="reception-time" data-piano="true">DÈS 10:00</div>
-      <div class="reception-date-row">
-        <span class="r-label line-up">SAMEDI</span>
-        <div class="r-divider line-up" style="transition-delay:.1s"></div>
-        <span class="r-num" data-piano="true">11</span>
-        <div class="r-divider line-up" style="transition-delay:.2s"></div>
-        <span class="r-label line-up" style="transition-delay:.3s">JUILLET<br>2026</span>
-      </div>
+      <p class="reception-headline line-up">LE PROGRAMME DES CÉLÉBRATIONS :</p>
+      
       <div class="reception-info-grid">
-        <div class="info-cell t-cell"><p class="info-cell-value">10h00</p><p class="info-cell-label">Cérémonie du mariage civil<br><span class="info-cell-desc">À l'esplanade du complexe Natou nkouga</span></p></div>
-        <div class="info-cell t-cell"><p class="info-cell-value">12h00</p><p class="info-cell-label">Vin d'honneur<br><span class="info-cell-desc">Chez la belle famille</span></p></div>
-        <div class="info-cell t-cell"><p class="info-cell-value">16h00</p><p class="info-cell-label">Mariage religieux<br><span class="info-cell-desc">(kout lam)</span></p></div>
-        <div class="info-cell t-cell"><p class="info-cell-value">17h00</p><p class="info-cell-label">Départ du cortège nuptial<br><span class="info-cell-desc">Pour Mambain Malin</span></p></div>
-        <div class="info-cell t-cell"><p class="info-cell-value">18h00</p><p class="info-cell-label">Cérémonie coutumière<br><span class="info-cell-desc">(peh mun donbû)</span></p></div>
-        <div class="info-cell t-cell"><p class="info-cell-value">20h00</p><p class="info-cell-label">Soirée dans la salle des fêtes<br><span class="info-cell-desc">Complexe Natou</span></p></div>
+        <!-- VENDREDI 10 JUILLET -->
+        <div class="info-day-title line-up">Vendredi 10 Juillet 2026</div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">09h00</p>
+          <p class="info-cell-label">Vernissage (yap laléh)<br><span class="info-cell-desc line-up">Chez l'homme à Mambain Malin</span></p>
+        </div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">17h00</p>
+          <p class="info-cell-label">Vernissage (yap laléh)<br><span class="info-cell-desc line-up">Chez la femme à Njiyouom derrière l'Artisanat</span></p>
+        </div>
+
+        <!-- SAMEDI 11 JUILLET -->
+        <div class="info-day-title line-up" style="margin-top:15px;">Samedi 11 Juillet 2026</div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">10h00</p>
+          <p class="info-cell-label">Cérémonie du mariage civil<br><span class="info-cell-desc line-up">À l'esplanade du complexe Natou nkouga</span></p>
+        </div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">12h00</p>
+          <p class="info-cell-label">Vin d'honneur<br><span class="info-cell-desc line-up">Chez la belle famille</span></p>
+        </div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">16h00</p>
+          <p class="info-cell-label">Mariage religieux<br><span class="info-cell-desc line-up">(kout lam)</span></p>
+        </div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">17h00</p>
+          <p class="info-cell-label">Départ du cortège nuptial<br><span class="info-cell-desc line-up">Pour Mambain Malin</span></p>
+        </div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">18h00</p>
+          <p class="info-cell-label">Cérémonie coutumière<br><span class="info-cell-desc line-up">(peh mun donbû)</span></p>
+        </div>
+        <div class="info-cell t-cell">
+          <p class="info-cell-value">20h00</p>
+          <p class="info-cell-label">Soirée dans la salle des fêtes<br><span class="info-cell-desc line-up">Complexe Natou</span></p>
+        </div>
       </div>
     </div>
   </section>
@@ -547,20 +524,17 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <section class="countdown-section">
     <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf ml" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <div class="inner">
       <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
-      <p class="sec-title line-up">Compte à Rebours</p>
+      <p class="sec-title line-up">Compte à Rebours (Samedi)</p>
       <div class="countdown-display line-up" style="transition-delay:.2s">
-        <div class="countdown-unit"><div class="countdown-number" id="cd-days">--</div><div class="countdown-label">Jours</div></div>
+        <div class="countdown-unit"><div class="countdown-number" id="cd-days">--</div><div class="countdown-label line-up">Jours</div></div>
         <span class="countdown-sep">:</span>
-        <div class="countdown-unit"><div class="countdown-number" id="cd-hours">--</div><div class="countdown-label">Heures</div></div>
+        <div class="countdown-unit"><div class="countdown-number" id="cd-hours">--</div><div class="countdown-label line-up">Heures</div></div>
         <span class="countdown-sep">:</span>
-        <div class="countdown-unit"><div class="countdown-number" id="cd-minutes">--</div><div class="countdown-label">Minutes</div></div>
+        <div class="countdown-unit"><div class="countdown-number" id="cd-minutes">--</div><div class="countdown-label line-up">Minutes</div></div>
         <span class="countdown-sep">:</span>
-        <div class="countdown-unit"><div class="countdown-number" id="cd-seconds">--</div><div class="countdown-label">Secondes</div></div>
+        <div class="countdown-unit"><div class="countdown-number" id="cd-seconds">--</div><div class="countdown-label line-up">Secondes</div></div>
       </div>
     </div>
   </section>
@@ -568,21 +542,19 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <!-- ── CALENDAR ── -->
   <section class="calendar-section">
     <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf mr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
     <div class="inner">
       <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
-      <p class="sec-title line-up">Date du Mariage</p>
+      <p class="sec-title line-up">Dates du Mariage</p>
       <div class="calendar-wrap fade-sc" style="transition-delay:.2s">
-        <div class="cal-header">Juillet 2026</div>
+        <div class="cal-header line-up">Juillet 2026</div>
         <div class="cal-days-header">
           <div class="cal-day-name">Lu</div><div class="cal-day-name">Ma</div><div class="cal-day-name">Me</div>
           <div class="cal-day-name">Je</div><div class="cal-day-name">Ve</div><div class="cal-day-name">Sa</div><div class="cal-day-name">Di</div>
         </div>
         <div class="cal-grid" id="calGrid"></div>
       </div>
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Fadila+et+Abdel&dates=20260711T100000/20260712T030000&details=C%C3%A9r%C3%A9monies+et+R%C3%A9ception+du+mariage&sf=true" target="_blank" class="cal-link line-up" style="transition-delay:.4s">+ Ajouter au calendrier</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Fadila+et+Abdel&dates=20260710T090000/20260712T030000&details=Festivit%C3%A9s+du+mariage+sur+deux+jours+:++Vernissages+le+Vendredi+10+et+C%C3%A9r%C3%A9monies/Soir%C3%A9e+le+Samedi+11+Juillet." target="_blank" class="cal-link line-up" style="transition-delay:.4s">+ Ajouter au calendrier</a>
       <div class="confirm-btn-wrap line-up" style="transition-delay:.55s">
         <button class="confirm-btn" id="confirmBtn">CONFIRMER MA PRÉSENCE</button>
       </div>
@@ -593,8 +565,6 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <section class="guestbook-section">
     <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf br" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
     <div class="inner">
       <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
       <p class="sec-title line-up">Livre d'Or</p>
@@ -611,14 +581,12 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
   <footer class="footer">
     <svg class="sf tl dk" style="opacity:.14" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr dk" style="opacity:.14" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
-    <svg class="sf bl dk" style="opacity:.10" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
-    <svg class="sf br dk" style="opacity:.10" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
     <div class="footer-names" data-piano="true">Fadila &amp; Abdel</div>
-    <div class="footer-date line-up" style="transition-delay:.5s">SAMEDI · 11 JUILLET 2026 · À PARTIR DE 10:00</div>
+    <div class="footer-date line-up" style="transition-delay:.5s">VENDREDI 10 &amp; SAMEDI 11 JUILLET 2026</div>
     <p class="footer-message line-up" style="transition-delay:.7s">"Et parmi Ses signes, Il a créé de vous-mêmes des épouses pour que vous trouviez la quiétude auprès d'elles." — Coran 30:21</p>
   </footer>
 
-</div><!-- /#main -->
+</div>
 
 <div class="toast" id="toast"></div>
 
@@ -630,7 +598,6 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
    PIANO / LETTER SPLIT HELPER
 ───────────────────────────────────────── */
 function splitLetters(el, baseDelay = 0, step = 60) {
-  // Only split text nodes, skip child elements (like <em>)
   const nodes = Array.from(el.childNodes);
   el.innerHTML = '';
   nodes.forEach(node => {
@@ -650,7 +617,6 @@ function splitLetters(el, baseDelay = 0, step = 60) {
         }
       });
     } else {
-      // preserve child elements (em, etc.)
       el.appendChild(node);
     }
   });
@@ -661,7 +627,7 @@ function pianoIn(el) {
 }
 
 /* ─────────────────────────────────────────
-   HERO ANIMATIONS — triggered after envelope opens
+   HERO ANIMATIONS
 ───────────────────────────────────────── */
 function runHeroAnimations() {
   const label = document.getElementById('heroLabel');
@@ -671,7 +637,6 @@ function runHeroAnimations() {
   const date  = document.getElementById('heroDate');
   const cue   = document.getElementById('scrollCue');
 
-  // 1. Label: word-by-word slide up
   const labelWords = label.textContent.split(' ');
   label.innerHTML = '';
   labelWords.forEach((w, i) => {
@@ -687,36 +652,27 @@ function runHeroAnimations() {
   });
   setTimeout(() => label.querySelectorAll('.wrd-inner').forEach(w => w.classList.add('in')), 50);
 
-  // 2. Amp: spin-scale
   setTimeout(() => amp.classList.add('in'), 900);
 
-  // 3. Name 1 "Fadila" — piano left to right
   splitLetters(n1, 0, 80);
   setTimeout(() => pianoIn(n1), 1400);
 
-  // 4. Name 2 "Abdel" — piano with extra delay (reverse: right to left feel)
   splitLetters(n2, 0, 80);
   const n2Chars = n2.querySelectorAll('.ch');
   const n2Total = n2Chars.length;
   n2Chars.forEach((ch, i) => {
-    // stagger from center outward
-    const dist = Math.abs(i - (n2Total - 1 - i));
     ch.style.transitionDelay = (200 + (n2Total - 1 - i) * 80) + 'ms';
   });
   setTimeout(() => pianoIn(n2), 2000);
 
-  // 5. Date band
   setTimeout(() => date.querySelectorAll('.line-up').forEach(el => el.classList.add('in')), 2700);
-
-  // 6. Scroll cue
-  setTimeout(() => cue.classList.add('in'), 3400);
+  setTimeout(() => cue.querySelectorAll('.line-up').forEach(el => el.classList.add('in')), 3400);
 }
 
 /* ─────────────────────────────────────────
    SCROLL-TRIGGERED ANIMATION ENGINE
 ───────────────────────────────────────── */
 function setupScrollAnimations() {
-  // Piano elements (not hero — done separately)
   document.querySelectorAll('[data-piano]').forEach(el => {
     if (el.closest('.hero')) return;
     splitLetters(el, 0, 55);
@@ -740,7 +696,6 @@ function setupScrollAnimations() {
 
       el.classList.add('in');
 
-      // If it's a container with piano children, trigger them
       const pianoEls = el.querySelectorAll('[data-piano]');
       pianoEls.forEach((pe, pi) => {
         splitLetters(pe, 0, 55);
@@ -749,11 +704,10 @@ function setupScrollAnimations() {
 
       io.unobserve(el);
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.05 });
 
   allTargets.forEach(el => io.observe(el));
 
-  // Piano elements directly
   const pianoIo = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -762,27 +716,26 @@ function setupScrollAnimations() {
       setTimeout(() => pianoIn(el), 100);
       pianoIo.unobserve(el);
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.11 });
   document.querySelectorAll('[data-piano]').forEach(el => {
     if (!el.closest('.hero')) pianoIo.observe(el);
   });
 
-  // Timeline cells stagger
   const tIo = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const grid = entry.target;
       grid.querySelectorAll('.t-cell').forEach((cell, i) => {
-        setTimeout(() => cell.classList.add('in'), i * 120);
+        setTimeout(() => cell.classList.add('in'), i * 100);
       });
       tIo.unobserve(grid);
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.04 });
   document.querySelectorAll('.reception-info-grid').forEach(g => tIo.observe(g));
 }
 
 /* ─────────────────────────────────────────
-   ENVELOPE
+   ENVELOPE MANAGEMENT
 ───────────────────────────────────────── */
 const envWrap = document.getElementById('envWrap');
 const envFlap = document.getElementById('envFlap');
@@ -814,7 +767,7 @@ envWrap.addEventListener('click', openEnvelope);
 document.body.style.overflow = 'hidden';
 
 /* ─────────────────────────────────────────
-   CALENDAR
+   DYNAMIC CALENDAR PRODUCTION
 ───────────────────────────────────────── */
 function buildCalendar() {
   const grid = document.getElementById('calGrid');
@@ -825,7 +778,13 @@ function buildCalendar() {
   }
   for (let d = 1; d <= 31; d++) {
     const c = document.createElement('div');
-    c.className = 'cal-cell' + (d === 11 ? ' wedding-day' : '');
+    let classAssignments = 'cal-cell';
+    if (d === 11) {
+      classAssignments += ' wedding-day';
+    } else if (d === 10) {
+      classAssignments += ' friday-celebration';
+    }
+    c.className = classAssignments;
     c.textContent = d;
     grid.appendChild(c);
   }
@@ -833,7 +792,7 @@ function buildCalendar() {
 buildCalendar();
 
 /* ─────────────────────────────────────────
-   COUNTDOWN — flip animation on change
+   COUNTDOWN LOGIC (SATURDAY TARGET)
 ───────────────────────────────────────── */
 const cdEls = {
   days: document.getElementById('cd-days'),
@@ -890,7 +849,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ─────────────────────────────────────────
-   CONFIRM
+   CONFIRMATION FORM
 ───────────────────────────────────────── */
 document.getElementById('confirmBtn').addEventListener('click', function() {
   this.textContent = '✓ PRÉSENCE CONFIRMÉE';
@@ -900,7 +859,7 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
 });
 
 /* ─────────────────────────────────────────
-   GUESTBOOK
+   GUESTBOOK ENGAGEMENT
 ───────────────────────────────────────── */
 const wishes = [];
 document.getElementById('submitWish').addEventListener('click', () => {
@@ -915,14 +874,16 @@ document.getElementById('submitWish').addEventListener('click', () => {
 });
 function renderWishes() {
   document.getElementById('wishes-list').innerHTML = wishes.map(w => `
-    <div style="border-top:1px solid rgba(138,176,138,.2);padding:1.2rem 0;margin-top:.5rem">
+    <div class="line-up" style="border-top:1px solid rgba(138,176,138,.2);padding:1.2rem 0;margin-top:.5rem">
       <div style="font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:var(--gm);margin-bottom:.4rem">${w.name} · ${w.time}</div>
       <div style="font-style:italic;color:var(--tm);font-size:1rem;line-height:1.6">"${w.msg}"</div>
     </div>`).join('');
+  
+  document.querySelectorAll('#wishes-list .line-up').forEach(el => setTimeout(() => el.classList.add('in'), 50));
 }
 
 /* ─────────────────────────────────────────
-   TOAST
+   TOAST NOTIFICATIONS
 ───────────────────────────────────────── */
 function showToast(msg) {
   const t = document.getElementById('toast');
