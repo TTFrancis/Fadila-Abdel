@@ -351,6 +351,79 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .confirm-btn:hover{background:var(--gm);transform:translateY(-2px);box-shadow:0 8px 20px rgba(45,74,45,.2)}
 
 /* ═══════════════════════════════
+   DRESS CODE / THEME SECTION
+═══════════════════════════════ */
+.theme-section{background:var(--ivory);overflow:hidden}
+.theme-intro{text-align:center;font-style:italic;color:var(--tl);font-size:clamp(1rem,2.2vw,1.15rem);line-height:1.8;max-width:560px;margin:0 auto 2.5rem;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.theme-intro.in{opacity:1;transform:translateY(0)}
+
+/* Colour palette display */
+.palette-title{text-align:center;font-family:'Cinzel',serif;font-size:clamp(.58rem,1.5vw,.72rem);letter-spacing:.35em;color:var(--gm);text-transform:uppercase;margin-bottom:1.6rem}
+.palette-row{display:flex;justify-content:center;align-items:flex-end;gap:clamp(.8rem,3vw,1.8rem);flex-wrap:wrap;margin-bottom:3rem}
+.swatch-wrap{display:flex;flex-direction:column;align-items:center;gap:.55rem}
+.swatch{width:clamp(46px,9vw,72px);height:clamp(46px,9vw,72px);border-radius:50%;box-shadow:0 6px 20px rgba(0,0,0,.18);opacity:0;transform:scale(0) translateY(20px);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
+.swatch.in{opacity:1;transform:scale(1) translateY(0)}
+.swatch:hover{transform:scale(1.15) translateY(-4px) !important;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.swatch-name{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;color:var(--tl);text-transform:uppercase;text-align:center;opacity:0;transition:opacity .4s ease .3s}
+.swatch-name.in{opacity:1}
+
+/* Animated shimmer ring on hover */
+@keyframes swatchRing{0%{box-shadow:0 0 0 0px rgba(255,255,255,.6)}100%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+.swatch:hover{animation:swatchRing .6s ease-out}
+
+/* Dress code cards */
+.dresscode-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2.5rem);margin-top:1rem}
+@media(max-width:580px){.dresscode-grid{grid-template-columns:1fr}}
+.dresscode-card{border-radius:4px;overflow:hidden;position:relative;padding:clamp(1.8rem,3.5vw,2.8rem) clamp(1.4rem,3vw,2.2rem);opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.dresscode-card.in{opacity:1;transform:translateY(0)}
+.dresscode-card:hover{transform:translateY(-4px) !important;box-shadow:0 16px 40px rgba(0,0,0,.12)}
+
+/* Civil card – tropical burst */
+.dresscode-card.civil{
+  background:linear-gradient(135deg,
+    rgba(201,168,76,.08) 0%,
+    rgba(232,90,30,.07) 35%,
+    rgba(208,27,114,.06) 70%,
+    rgba(45,74,45,.05) 100%
+  );
+  border:1px solid rgba(232,90,30,.2);
+}
+/* Evening card – dark elegance */
+.dresscode-card.evening{
+  background:linear-gradient(135deg,
+    rgba(45,74,45,.07) 0%,
+    rgba(28,110,130,.07) 40%,
+    rgba(208,27,114,.05) 100%
+  );
+  border:1px solid rgba(28,110,130,.2);
+}
+
+.dc-icon{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:.9rem;display:block;text-align:center}
+.dc-event{font-family:'Cinzel',serif;font-size:clamp(.6rem,1.6vw,.75rem);letter-spacing:.35em;text-transform:uppercase;text-align:center;margin-bottom:.6rem}
+.dc-event.civil{color:#d05010}
+.dc-event.evening{color:#1c6e82}
+.dc-day{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:600;color:var(--gd);text-align:center;margin-bottom:1.1rem;line-height:1.1}
+.dc-rule{width:40px;height:1px;margin:0 auto 1.1rem;transition:width .6s ease .5s}
+.dresscode-card.civil .dc-rule{background:linear-gradient(to right,#e85a1e,#d01872)}
+.dresscode-card.evening .dc-rule{background:linear-gradient(to right,#1c6e82,#2d4a2d)}
+.dresscode-card.in .dc-rule{width:70px}
+.dc-desc{font-style:italic;color:var(--tl);font-size:clamp(.88rem,2vw,1rem);text-align:center;line-height:1.75}
+.dc-pill-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.2rem}
+.dc-pill{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.18em;padding:.35rem .8rem;border-radius:20px;text-transform:uppercase;transition:transform .2s ease}
+.dc-pill:hover{transform:scale(1.07)}
+.dresscode-card.civil .dc-pill{background:rgba(232,90,30,.1);color:#c04a10;border:1px solid rgba(232,90,30,.25)}
+.dresscode-card.evening .dc-pill{background:rgba(28,110,130,.1);color:#155f70;border:1px solid rgba(28,110,130,.25)}
+
+/* Floating confetti dots */
+@keyframes confettiFall{
+  0%{transform:translateY(-20px) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  90%{opacity:.7}
+  100%{transform:translateY(340px) rotate(360deg);opacity:0}
+}
+.confetti-dot{position:absolute;border-radius:50%;animation:confettiFall linear infinite;pointer-events:none}
+
+/* ═══════════════════════════════
    FOOTER
 ═══════════════════════════════ */
 .footer{background:var(--gd);color:var(--gp);text-align:center;padding:clamp(3rem,6vw,5rem) clamp(20px,5vw,60px);position:relative;overflow:hidden}
@@ -551,6 +624,80 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
           <p class="info-cell-value">20h00</p>
           <p class="info-cell-label">Soirée dans la salle de fête<br><span class="info-cell-desc line-up">Complexe <b>Natou</b></span></p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THÈME & DRESS CODE ── -->
+  <section class="theme-section">
+    <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
+    <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
+
+    <!-- floating confetti dots injected by JS -->
+    <div id="confetti-container" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0"></div>
+
+    <div class="inner" style="position:relative;z-index:2">
+      <div class="ornament" data-anim="ornament"><div class="ornament-line"></div><span class="ornament-heart">♥</span><div class="ornament-line reverse"></div></div>
+      <p class="sec-title line-up">Thème &amp; Dress Code</p>
+
+      <!-- Colour palette -->
+      <p class="palette-title line-up" style="transition-delay:.15s">La Palette des Couleurs</p>
+      <div class="palette-row" id="paletteRow">
+        <div class="swatch-wrap">
+          <div class="swatch" style="background:#1a7a4a;transition-delay:.05s"></div>
+          <span class="swatch-name">Vert Tropical</span>
+        </div>
+        <div class="swatch-wrap">
+          <div class="swatch" style="background:#00b5cc;transition-delay:.15s"></div>
+          <span class="swatch-name">Turquoise</span>
+        </div>
+        <div class="swatch-wrap">
+          <div class="swatch" style="background:#e85a1e;transition-delay:.25s"></div>
+          <span class="swatch-name">Orange Vif</span>
+        </div>
+        <div class="swatch-wrap">
+          <div class="swatch" style="background:#b01060;transition-delay:.35s"></div>
+          <span class="swatch-name">Fuchsia</span>
+        </div>
+        <div class="swatch-wrap">
+          <div class="swatch" style="background:#e5a800;transition-delay:.45s"></div>
+          <span class="swatch-name">Or Doré</span>
+        </div>
+      </div>
+
+      <!-- Dress code cards -->
+      <div class="dresscode-grid">
+
+        <!-- Civil ceremony -->
+        <div class="dresscode-card civil fade-sc" style="transition-delay:.1s">
+          <span class="dc-icon">🎩👒</span>
+          <p class="dc-event civil">Vendredi 10 Juillet</p>
+          <h3 class="dc-day">Cérémonie Civile</h3>
+          <div class="dc-rule"></div>
+          <p class="dc-desc">Explosez de couleurs&nbsp;!<br>
+          Chapeaux de cérémonie &amp; fascinations<br>sont de mise pour les dames.</p>
+          <div class="dc-pill-row">
+            <span class="dc-pill">Tenues Colorées</span>
+            <span class="dc-pill">Chapeaux &amp; Fascinations</span>
+            <span class="dc-pill">Joie &amp; Éclat</span>
+          </div>
+        </div>
+
+        <!-- Evening / Nuptial -->
+        <div class="dresscode-card evening fade-sc" style="transition-delay:.25s">
+          <span class="dc-icon">🤵🍾</span>
+          <p class="dc-event evening">Samedi 11 Juillet — Soir</p>
+          <h3 class="dc-day">Soirée Nuptiale</h3>
+          <div class="dc-rule"></div>
+          <p class="dc-desc">Élégance de rigueur.<br>
+          Robes longues ou cocktail,<br>smokings &amp; tenues de soirée bienvenus.</p>
+          <div class="dc-pill-row">
+            <span class="dc-pill">Robes Longues</span>
+            <span class="dc-pill">Cocktail</span>
+            <span class="dc-pill">Smokings</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -907,6 +1054,47 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
 }
+/* ─────────────────────────────────────────
+   PALETTE SWATCH INTERSECTION ANIMATION
+───────────────────────────────────────── */
+(function() {
+  const paletteRow = document.getElementById('paletteRow');
+  if (!paletteRow) return;
+  const swatchObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      paletteRow.querySelectorAll('.swatch').forEach(s => s.classList.add('in'));
+      paletteRow.querySelectorAll('.swatch-name').forEach(s => s.classList.add('in'));
+      swatchObserver.unobserve(paletteRow);
+    });
+  }, { threshold: 0.25 });
+  swatchObserver.observe(paletteRow);
+})();
+
+/* ─────────────────────────────────────────
+   CONFETTI DOTS — THEME SECTION
+───────────────────────────────────────── */
+(function() {
+  const container = document.getElementById('confetti-container');
+  if (!container) return;
+  const colors = ['#1a7a4a','#00b5cc','#e85a1e','#b01060','#e5a800','#f7f3ec','#4a7c4a','#c04a10'];
+  for (let i = 0; i < 28; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'confetti-dot';
+    const size = 5 + Math.random() * 8;
+    dot.style.cssText = [
+      'width:' + size + 'px',
+      'height:' + size + 'px',
+      'left:' + (Math.random() * 100) + '%',
+      'top:' + (Math.random() * 20) + '%',
+      'background:' + colors[Math.floor(Math.random() * colors.length)],
+      'opacity:' + (0.15 + Math.random() * 0.25),
+      'animation-duration:' + (6 + Math.random() * 10) + 's',
+      'animation-delay:' + (Math.random() * 8) + 's'
+    ].join(';');
+    container.appendChild(dot);
+  }
+})();
 </script>
 </body>
 </html>
