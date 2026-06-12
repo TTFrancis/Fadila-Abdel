@@ -273,6 +273,67 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
 .couple-and-text{font-style:italic;font-size:clamp(3rem,7vw,5rem);color:var(--gl);line-height:1}
 
 /* ═══════════════════════════════
+   LOVE STORY BLOCK
+═══════════════════════════════ */
+.love-story-wrap{
+  grid-column:1/-1;
+  margin-top:clamp(2rem,4vw,3rem);
+  text-align:center;
+  position:relative;
+  padding:0 clamp(.5rem,3vw,2rem);
+}
+
+/* Decorative quote marks */
+.love-story-wrap::before,
+.love-story-wrap::after{
+  content:'\201C';
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(5rem,12vw,9rem);
+  color:var(--gp);
+  line-height:0;
+  position:absolute;
+  opacity:.55;
+  pointer-events:none;
+}
+.love-story-wrap::before{top:clamp(2rem,5vw,3.5rem);left:0}
+.love-story-wrap::after{content:'\201D';bottom:clamp(-.5rem,0vw,.5rem);right:0;transform:translateY(50%)}
+
+/* Thin gold rule above */
+.love-story-rule{
+  display:block;
+  width:0;
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:0 auto clamp(1.6rem,3vw,2.5rem);
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+}
+.love-story-rule.in{width:clamp(80px,30%,200px)}
+
+/* Each paragraph animates in as a "curtain-lift" per word */
+.love-story-para{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.4vw,1.25rem);
+  font-style:italic;
+  color:var(--tm);
+  line-height:1.9;
+  max-width:560px;
+  margin:0 auto clamp(1rem,2vw,1.4rem);
+  position:relative;
+  z-index:1;
+}
+.love-story-para:last-of-type{margin-bottom:0}
+
+/* Word-level reveal */
+.ls-word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.ls-inner{
+  display:inline-block;
+  transform:translateY(110%);
+  opacity:0;
+  transition:transform .65s cubic-bezier(.22,1,.36,1), opacity .5s ease;
+}
+.ls-inner.in{transform:translateY(0);opacity:1}
+
+/* ═══════════════════════════════
    FAMILIES
 ═══════════════════════════════ */
 .families-section{background:var(--cream)}
@@ -538,7 +599,7 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
         <div class="person-card fade-sc" style="transition-delay:.15s">
           <p class="person-role line-up">La Mariée</p>
           <h2 class="person-name" data-piano="true">Fadila</h2>
-          <p class="person-role line-up">Deux âmes, une histoire, un même avenir. Après avoir partagé tant de beaux moments,</p>
+          <p class="person-role line-up"></p>
           <p class="person-desc line-up"></p>
         </div>
         <div class="couple-and fade-sc" style="transition-delay:.3s">
@@ -547,14 +608,20 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
         <div class="person-card fade-sc" style="transition-delay:.45s">
           <p class="person-role line-up">Le Marié</p>
           <h2 class="person-name" data-piano="true">Abdel</h2>
-          <p class="person-role line-up">Nous serions honorés de célébrer ce jour unique à vos côtés.</p>
+          <p class="person-role line-up"></p>
           <p class="person-desc line-up"></p>
         </div>
-      </div>
-    </div>
-  </section>
+      </div><!-- /.couple-grid -->
 
-  <!-- ── FAMILIES ── -->
+      <!-- Love Story -->
+      <div class="love-story-wrap">
+        <span class="love-story-rule" id="lsRule"></span>
+        <p class="love-story-para" id="lsPara1">Abdel et Fadila ont commencé leur histoire comme deux étoiles dans un même ciel — distinctes, lumineuses, et destinées à se rejoindre. Leur rencontre, empreinte de douceur et d'évidence, a marqué le début d'un voyage extraordinaire.</p>
+        <p class="love-story-para" id="lsPara2" style="margin-top:clamp(.8rem,2vw,1.2rem)">Après avoir partagé rires, projets et promesses, ils ont choisi de sceller leur amour devant leurs familles et amis. Ce mariage est la célébration de tout ce qu'ils ont construit ensemble.</p>
+        <p class="love-story-para" id="lsPara3" style="margin-top:clamp(.8rem,2vw,1.2rem)">C'est avec une joie immense qu'ils vous invitent à être témoins de ce moment unique, inoubliable, et éternel.</p>
+      </div>
+    </div><!-- /.inner -->
+  </section> -->
   <section class="families-section">
     <svg class="sf tl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag"/></svg>
     <svg class="sf tr" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg"><use href="#mag-r"/></svg>
@@ -594,7 +661,7 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
       
       <div class="reception-info-grid">
         <!-- VENDREDI 10 JUILLET -->
-        <div class="info-day-title line-up">Vendredi 10 Juillet 2026 💅🏽</div>
+        <div class="info-day-title line-up">Vendredi 10 Juillet 2026</div>
         <div class="info-cell t-cell">
           <p class="info-cell-value">09h00 </p>
           <p class="info-cell-label">YAP LALÉH Coutume traditionelle de vernissage<br><span class="info-cell-desc line-up">Chez l'homme sis à <b>Mambain Malen</b> </span></p>
@@ -609,7 +676,7 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
         </div>
 
         <!-- SAMEDI 11 JUILLET -->
-        <div class="info-day-title line-up" style="margin-top:15px;">Samedi 11 Juillet 2026 💍👩🏽‍❤️‍💋‍👨🏾</div>
+        <div class="info-day-title line-up" style="margin-top:15px;">Samedi 11 Juillet 2026</div>
         <div class="info-cell t-cell">
           <p class="info-cell-value">10h00</p>
           <p class="info-cell-label">Cérémonie du mariage civil<br><span class="info-cell-desc line-up">À l'esplanade du complexe <b>Nkouga</b></span></p>
@@ -680,7 +747,6 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
           Chapeaux de cérémonie &amp; fascinations<br>sont de mise pour les dames.</p>
           <div class="dc-pill-row">
             <span class="dc-pill">Tenues Colorées</span>
-            <span class="dc-pill">Chapeaux &amp; Fascinations</span>
             <span class="dc-pill">Joie &amp; Éclat</span>
           </div>
         </div>
@@ -694,9 +760,8 @@ section{position:relative;padding:clamp(60px,8vw,120px) clamp(20px,8vw,80px);ove
           <p class="dc-desc">Élégance de rigueur.<br>
           Robes longues ou cocktail,<br>smokings &amp; tenues de soirée bienvenus.</p>
           <div class="dc-pill-row">
-            <span class="dc-pill">Robes Longues</span>
-            <span class="dc-pill">Cocktail</span>
-            <span class="dc-pill">Smokings</span>
+            <span class="dc-pill">Élégant</span>
+            <span class="dc-pill">Chic</span>
           </div>
         </div>
 
@@ -1056,6 +1121,68 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
 }
+/* ─────────────────────────────────────────
+   LOVE STORY — WORD-CURTAIN ANIMATION
+───────────────────────────────────────── */
+(function() {
+  /* Split each paragraph into wrapped words */
+  function splitWords(el) {
+    const text = el.textContent;
+    el.innerHTML = '';
+    text.split(' ').forEach((word, i) => {
+      if (i > 0) el.appendChild(document.createTextNode(' '));
+      const wWrap = document.createElement('span');
+      wWrap.className = 'ls-word';
+      const wInner = document.createElement('span');
+      wInner.className = 'ls-inner';
+      wInner.textContent = word;
+      wWrap.appendChild(wInner);
+      el.appendChild(wWrap);
+    });
+  }
+
+  const paras = ['lsPara1','lsPara2','lsPara3'];
+  paras.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) splitWords(el);
+  });
+
+  /* Stagger delays across all three paragraphs cumulatively */
+  let globalDelay = 0;
+  paras.forEach((id, pIdx) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.querySelectorAll('.ls-inner').forEach((inner, wIdx) => {
+      inner.style.transitionDelay = (globalDelay + wIdx * 45) + 'ms';
+    });
+    globalDelay += el.querySelectorAll('.ls-inner').length * 45 + 180;
+  });
+
+  /* IntersectionObserver — fire once the wrap enters view */
+  const wrap = document.querySelector('.love-story-wrap');
+  if (!wrap) return;
+
+  const lsObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      /* Animate the gold rule first */
+      const rule = document.getElementById('lsRule');
+      if (rule) setTimeout(() => rule.classList.add('in'), 80);
+
+      /* Then reveal words */
+      paras.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.querySelectorAll('.ls-inner').forEach(w => w.classList.add('in'));
+      });
+
+      lsObserver.unobserve(wrap);
+    });
+  }, { threshold: 0.12 });
+
+  lsObserver.observe(wrap);
+})();
+
 /* ─────────────────────────────────────────
    PALETTE SWATCH INTERSECTION ANIMATION
 ───────────────────────────────────────── */
